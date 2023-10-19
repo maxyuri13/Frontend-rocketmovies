@@ -1,7 +1,6 @@
 import { Container } from './styles';
-import { Button } from '../../components/Button';
 
-export function Details() {
+export function Preview() {
   return (
     <Container>
     </Container>
