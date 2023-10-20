@@ -1,4 +1,4 @@
-import { FiArrowLeft, } from 'react-icons/fi';
+import { FiArrowLeft } from 'react-icons/fi';
 import { LiaClock } from "react-icons/lia";
 import { Header } from '../../components/Header'
 import { Tag } from '../../components/Tag'

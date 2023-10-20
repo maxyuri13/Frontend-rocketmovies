@@ -1,5 +1,6 @@
 export default {
   COLORS: {
+    WHITE: "#FFFFFF",
     WHITE_100: "#F4EDE8",
     WHITE_200: "#E5E5E5",
     PINK_100: "#FF859B",
@@ -10,6 +11,7 @@ export default {
     BLACK_300: "#1C1B1E",
     BLACK_400: "#312E38",
     BLACK_500: "#282124",
+    BLACK_600: "#0D0C0F",
     GRAY_100: "#948F99",
     GRAY_200: "#999591",
     GRAY_300: "#CAC4CF"
