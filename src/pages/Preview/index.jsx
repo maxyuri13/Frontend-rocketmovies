@@ -2,6 +2,7 @@ import { FiArrowLeft } from 'react-icons/fi';
 import { LiaClock } from "react-icons/lia";
 import { Header } from '../../components/Header'
 import { Tag } from '../../components/Tag'
+import { Rating } from '../../components/Rating'
 import { Container, Profile, Content } from './styles';
 
 export function Preview() {
@@ -14,7 +15,10 @@ export function Preview() {
               <FiArrowLeft/> 
               Back
             </a>
-            <h1>Interstellar</h1>
+            <div className="titleH1">
+              <h1>Interstellar</h1>
+              <Rating value="4"/>
+            </div>
             <Profile>
               <div>
               <img src="https://github.com/maxyuri13.png" alt="user photo" />

@@ -1,7 +1,13 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-export const Container = styled.rating`
-  width: 100%;
-  background-color: ${({ theme }) => theme.COLORS.PINK_100};
-  color: ${({ theme }) => theme.COLORS.BLACK_400};
-`;
+export const Container = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  width: 84px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  > svg {
+    color: ${(props) => props.theme.COLORS.PINK_100};
+  }
+`

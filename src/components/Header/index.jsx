@@ -8,7 +8,7 @@ export function Header() {
       <Search>
         <Input placeholder="Search by title" />
       </Search>
-      <Profile>
+      <Profile to="/profile">
         <div>
           <strong>Max Yuri</strong>
           <Logout>

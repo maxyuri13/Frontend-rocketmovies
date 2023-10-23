@@ -3,15 +3,14 @@ import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './styles/global';
 import theme from './styles/theme';
-// import { Routes } from './routes';
-import { Create } from './pages/Create'
+import { Routes } from './routes';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      {/* <Routes /> */}
-      <Create />
+      <Routes />
     </ThemeProvider>
   </React.StrictMode>,
 )

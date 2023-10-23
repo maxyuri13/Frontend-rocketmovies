@@ -1,4 +1,5 @@
 import { FiArrowLeft, } from 'react-icons/fi';
+import { Link } from "react-router-dom";
 import { Container, Form } from './styles';
 import { Header } from '../../components/Header';
 import { Input } from '../../components/Input'
@@ -12,10 +13,10 @@ export function Create() {
       <Header />
       <main>
         <Form>
-          <a>
+          <Link to="/"> 
             <FiArrowLeft/> 
             Back
-          </a>
+          </Link>
           <h1>New movie</h1>
           <div className="col">
             <Input

@@ -12,8 +12,22 @@ export const Container = styled.div`
 
   > main {
       grid-area: content;
-      overflow-y: scroll;
+      overflow-y: auto;
       padding: 4rem 12.5rem 15.6rem;
+  }
+
+  .titleH1 {
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    gap: 1.9rem;
+
+    > h1 {
+      font-size: 3.6rem;
+      font-weight: 500;
+      color: ${({ theme }) => theme.COLORS.WHITE_100};
+      margin-top: 2.4rem;
+    }
   }
 `;
 
@@ -63,13 +77,6 @@ export const Content = styled.div`
     font-size: 1.6rem;
     font-weight: 400;
     color: ${({ theme }) => theme.COLORS.PINK_100};
-  }
-
-  > h1 {
-    font-size: 3.6rem;
-    font-weight: 500;
-    color: ${({ theme }) => theme.COLORS.WHITE_100};
-    margin-top: 2.4rem;
   }
 
   .tags {

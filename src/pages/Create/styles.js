@@ -14,7 +14,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     grid-area: content;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   .Markers {
