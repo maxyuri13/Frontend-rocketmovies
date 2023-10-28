@@ -1,9 +1,12 @@
-import { Input } from '../../components/Input';
 import { useAuth } from '../../hooks/auth';
+import { api } from '../../../../Backend/src/services/api';
+import avatarPlaceHolder from '../../assets/avatar_placeholder.svg';
 import { Container, Search, Profile, Logout } from "./styles";
+import { Input } from '../../components/Input';
 
 export function Header() {
-  const { signOut } = useAuth();
+  const { signOut, user } = useAuth();
+  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceHolder;
 
   function handleSignOut() {
     signOut();
@@ -18,12 +21,15 @@ export function Header() {
       </Search>
       <Profile to="/profile">
         <div>
-          <strong>Max Yuri</strong>
+          <strong>{user.name}</strong>
             <Logout onClick={handleSignOut}>
               <span>sair</span>
             </Logout>
         </div>
-        <img src="https://github.com/maxyuri13.png" alt="Foto do usuário"/>
+        <img 
+          src={avatarUrl} 
+          alt={user.name}
+        />
       </Profile>
     </Container>
   )

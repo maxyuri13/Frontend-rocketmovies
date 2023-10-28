@@ -48,9 +48,8 @@ export const AddMovie = styled(Link)`
   align-items: center;
   gap: .8rem;
   
-  width: 20.7rem;
   height: 4.8rem;
-  padding: 3.2rem;
+  padding: 2.4rem;
   border-radius: .8rem;
   background-color: ${({ theme }) => theme.COLORS.PINK_100};
   color: ${({ theme }) => theme.COLORS.BLACK_300};

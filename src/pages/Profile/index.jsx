@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../../hooks/auth';
+import avatarPlaceHolder from '../../assets/avatar_placeholder.svg';
+import { api } from '../../../../Backend/src/services/api';
 import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from 'react-icons/fi';
 import { Link } from "react-router-dom";
 import { Input } from '../../components/Input'
@@ -12,17 +14,29 @@ export function Profile() {
   const [email, setEmail] = useState(user.email);
   const [passwordOld, setPasswordOld] = useState();
   const [passwordNew, setPasswordNew] = useState();
+  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceHolder;
+  const [avatar, setAvatar] = useState(avatarUrl);
+  const [avatarFile, setAvatarFile] = useState(null);
 
   async function handleUpdate() {
-    const user ={
+    const updated ={
       name,
       email,
       password: passwordNew,
       old_password: passwordOld
-    }
-    await updateProfile({ user });
+    };
+    const userUpdated = Object.assign(user, updated);
+    await updateProfile({ user: userUpdated, avatarFile });
   }
   
+  function handleChangeAvatar(event) {
+    const file = event.target.files[0];
+    setAvatarFile(file);
+
+    const imagePreview = URL.createObjectURL(file);
+    setAvatar(imagePreview);
+  }
+
   return (
     <Container>
       <header>
@@ -34,7 +48,7 @@ export function Profile() {
       <Form>
         <Avatar>
           <img 
-            src="https://github.com/maxyuri13.png" 
+            src={avatar} 
             alt="Foto do usuário"
           />
           <label htmlFor="avatar">
@@ -42,7 +56,8 @@ export function Profile() {
 
             <input 
               id="avatar"
-              type="file" 
+              type="file"
+              onChange={handleChangeAvatar} 
             />
           </label>
             

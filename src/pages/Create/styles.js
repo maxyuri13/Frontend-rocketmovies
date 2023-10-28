@@ -30,7 +30,7 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.form`
-  width: 111.3rem;
+  min-width: 105.7rem;
   height: 76.7rem;
   margin: 4rem 11.5rem 9.3rem;
 
@@ -70,7 +70,7 @@ export const Form = styled.form`
     flex-direction: row;
     gap: 4rem;
     margin-top: 2rem;
-
+    
     .Delete {
       background-color: ${({ theme }) => theme.COLORS.BLACK_600};
       color: ${({ theme }) => theme.COLORS.PINK_100};
