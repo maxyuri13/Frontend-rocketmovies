@@ -13,18 +13,18 @@ export function Preview() {
           <Content>
             <a>
               <FiArrowLeft/> 
-              Back
+              Voltar
             </a>
             <div className="titleH1">
-              <h1>Interstellar</h1>
+              <h1>Interestellar</h1>
               <Rating value="4"/>
             </div>
             <Profile>
               <div>
-              <img src="https://github.com/maxyuri13.png" alt="user photo" />
+              <img src="https://github.com/maxyuri13.png" alt="Foto do usuário" />
                 <span>Por Max Yuri</span>
                 <LiaClock />
-                <span>05/23/22 at 08:00 AM</span>
+                <span>23/05/22 ás 08:00</span>
               </div>
             </Profile>
             <div class="tags">

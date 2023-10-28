@@ -10,10 +10,10 @@ export function Home() {
       <main>
       <Content>
       <div className="header">
-          <h1>My movies</h1>
+          <h1>Meus filmes</h1>
           <AddMovie to="/create">
             <FiPlus/>
-              Add movie
+              Adicionar filme
           </AddMovie>
         </div>
         <div className="scrollable">

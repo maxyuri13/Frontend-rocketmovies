@@ -1,37 +1,67 @@
+import { useState } from 'react';
 import { FiArrowLeft, FiMail, FiLock, FiUser } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { api } from '../../../../Backend/src/services/api';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { Container, Form, Background } from './styles';
 
 export function SignUp() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  function handleSignUp() {
+    if (!name || !email || !password ) {
+      return alert("Preencha todos os campos!")
+    }
+
+    api.post("/users", { name, email, password })
+      .then(() => {
+        alert("Usuário cadastrado com sucesso!");
+        navigate("/");
+      })
+      .catch(error => {
+        if (error.response) {
+          alert(error.response.data.message);
+        } else {
+          alert("Não foi possível cadastrar");
+        }
+      });
+  }
+
   return (
     <Container>
       <Form>
-        <h1>RocketMovies</h1>
-        <p>Application to keep track of everything you watch.</p>
+        <h1>Rocket Movies</h1>
+        <p>Aplicação para acompanhar tudo que assistir.</p>
         
-        <h2>Create your account</h2>
+        <h2>Crie sua conta</h2>
 
         <Input
-          placeholder="Name"
+          placeholder="Nome"
           type="text"
           icon={FiUser}
+          onChange={e => setName(e.target.value)}
         />
         <Input
           placeholder="E-mail"
           type="text"
           icon={FiMail}
+          onChange={e => setEmail(e.target.value)}
         />
         <Input
-          placeholder="Password"
+          placeholder="Senha"
           type="password"
           icon={FiLock}
+          onChange={e => setPassword(e.target.value)}
         />
-        <Button title="Register"/>
+        <Button title="Cadastrar" onClick={handleSignUp} />
         <Link to="/">
           <FiArrowLeft />
-          Back to login
+          Voltar para o login
         </Link>
       </Form>
       <Background/>

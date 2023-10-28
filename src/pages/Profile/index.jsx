@@ -10,14 +10,14 @@ export function Profile() {
       <header>
         <Link to="/">
           <FiArrowLeft/> 
-          Back
+          Voltar
         </Link>
       </header>
       <Form>
         <Avatar>
           <img 
             src="https://github.com/maxyuri13.png" 
-            alt="User photo"
+            alt="Foto do usuário"
           />
           <label htmlFor="avatar">
             <FiCamera/>
@@ -30,7 +30,7 @@ export function Profile() {
             
         </Avatar>
         <Input
-          placeholder="Name"
+          placeholder="Nome"
           type="text"
           icon={FiUser}
         />
@@ -42,17 +42,17 @@ export function Profile() {
         />
 
         <Input
-          placeholder="Current password"
+          placeholder="Senha atual"
           type="password"
           icon={FiLock}
         />
 
         <Input
-          placeholder="New password"
+          placeholder="Nova senha"
           type="password"
           icon={FiLock}
         />
-        <Button title="Save"/>
+        <Button title="Salvar"/>
       </Form>
 
     </Container>

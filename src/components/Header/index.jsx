@@ -6,16 +6,16 @@ export function Header() {
     <Container>
       <h1>RocketMovies</h1>
       <Search>
-        <Input placeholder="Search by title" />
+        <Input placeholder="Pesquisar pelo título" />
       </Search>
       <Profile to="/profile">
         <div>
           <strong>Max Yuri</strong>
           <Logout>
-            <span>exit</span>
+            <span>sair</span>
           </Logout>
         </div>
-        <img src="https://github.com/maxyuri13.png" alt="User photo"/>
+        <img src="https://github.com/maxyuri13.png" alt="Foto do usuário"/>
       </Profile>
     </Container>
   )

@@ -15,28 +15,28 @@ export function Create() {
         <Form>
           <Link to="/"> 
             <FiArrowLeft/> 
-            Back
+            Voltar
           </Link>
           <h1>New movie</h1>
           <div className="col">
             <Input
-              placeholder="Title"
+              placeholder="Título"
               type="text"
             />
             <Input
-              placeholder="Your rating (from 0 to 5)"
+              placeholder="Sua nota (de 0 a 5)"
               type="number"
             />
           </div>
-          <Textarea placeholder="Observations" />
-          <h2>Markers</h2>
+          <Textarea placeholder="Observações" />
+          <h2>Marcadores</h2>
           <div className="Markers">
             <MovieTag value="React"/>
-            <MovieTag isNew placeholder="New tag" />
+            <MovieTag isNew placeholder="Novo marcador" />
           </div>
           <div className="buttons">
-            <Button className="Delete" title="Delete movie" />
-            <Button title="New marker" />
+            <Button className="Delete" title="Excluir filme" />
+            <Button title="Salvar alterações" />
           </div>
         </Form>
       </main>
