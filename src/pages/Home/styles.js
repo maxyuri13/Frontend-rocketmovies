@@ -20,7 +20,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-   min-width: 105.7rem;
+   width: 105.7rem;
    margin: 5rem 12rem;
 
    .scrollable {

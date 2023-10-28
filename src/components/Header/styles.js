@@ -27,6 +27,7 @@ export const Container = styled.header`
 export const Search = styled.div`
   grid-area: search;
   flex: 1;
+  min-width: 20rem;
 `;
 
 export const Profile = styled(Link)`

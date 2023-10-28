@@ -1,7 +1,15 @@
 import { Input } from '../../components/Input';
+import { useAuth } from '../../hooks/auth';
 import { Container, Search, Profile, Logout } from "./styles";
 
 export function Header() {
+  const { signOut } = useAuth();
+
+  function handleSignOut() {
+    signOut();
+    window.location.href = "/";
+  }
+
   return (
     <Container>
       <h1>RocketMovies</h1>
@@ -11,9 +19,9 @@ export function Header() {
       <Profile to="/profile">
         <div>
           <strong>Max Yuri</strong>
-          <Logout>
-            <span>sair</span>
-          </Logout>
+            <Logout onClick={handleSignOut}>
+              <span>sair</span>
+            </Logout>
         </div>
         <img src="https://github.com/maxyuri13.png" alt="Foto do usuário"/>
       </Profile>
