@@ -31,4 +31,9 @@ export const Container = styled.div`
     display: flex;
     margin-top: 1.5rem;
   }
+
+  &:hover {
+    filter: brightness(1.3);
+    cursor: pointer;
+  }
 `;

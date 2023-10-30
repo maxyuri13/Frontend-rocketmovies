@@ -3,14 +3,13 @@ import backgroundImg from '../../assets/background.png'
 
 export const Container = styled.div`
   height: 100vh;
-
+  width: 100%;
   display: flex;
   align-items: stretch;
 `;
 
 export const Form = styled.form`
   padding: 0 16.3rem;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,6 +40,6 @@ export const Form = styled.form`
 
 export const Background = styled.div`
   flex: 1;
-  background: url(${backgroundImg}) no-repeat center center;
+  background: url("${backgroundImg}") no-repeat center center;
   background-size: cover;
 `;

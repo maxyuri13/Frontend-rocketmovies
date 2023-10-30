@@ -3,21 +3,28 @@ import { api } from '../../../../Backend/src/services/api';
 import avatarPlaceHolder from '../../assets/avatar_placeholder.svg';
 import { Container, Search, Profile, Logout } from "./styles";
 import { Input } from '../../components/Input';
+import { FiSearch } from 'react-icons/fi';
 
-export function Header() {
+export function Header({search, setSearch}) {
   const { signOut, user } = useAuth();
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceHolder;
 
   function handleSignOut() {
-    signOut();
     window.location.href = "/";
+    signOut();
   }
 
   return (
     <Container>
       <h1>RocketMovies</h1>
       <Search>
-        <Input placeholder="Pesquisar pelo título" />
+        <Input 
+          placeholder="Pesquisar pelo título"
+          icon={FiSearch}
+          type='search'
+          value={search}
+          onChange={(e) => setSearch(e.target.value)} 
+        />
       </Search>
       <Profile to="/profile">
         <div>

@@ -1,43 +1,90 @@
+import { useAuth } from '../../hooks/auth';
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { api } from '../../../../Backend/src/services/api';
+import avatarPlaceHolder from '../../assets/avatar_placeholder.svg';
 import { FiArrowLeft } from 'react-icons/fi';
 import { LiaClock } from "react-icons/lia";
 import { Header } from '../../components/Header'
 import { Tag } from '../../components/Tag'
 import { Rating } from '../../components/Rating'
+import { Button } from '../../components/Button';
 import { Container, Profile, Content } from './styles';
 
+
 export function Preview() {
+  const [data, setData] = useState(null);
+  const { user } = useAuth();
+  const params = useParams();
+  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceHolder;
+  const navigate = useNavigate();
+
+  function handleBack() {
+    navigate(-1);
+  }
+
+  async function handleRemove() {
+    const confirm = window.confirm("Deseja realmente remover a nota?");
+
+    if(confirm) {
+      await api.delete(`/movieNotes/${params.id}`);
+      navigate(-1);
+    }
+  }
+
+  useEffect(() => {
+    async function fetchMovieNote(){
+      const response = await api.get(`/movieNotes/${params.id}`);
+      setData(response.data)
+    }
+    fetchMovieNote();
+  }, []);
+  
   return (
     <Container>
       <Header />
+      {
+        data &&
         <main>
           <Content>
-            <a>
+            <a onClick={handleBack}>
               <FiArrowLeft/> 
               Voltar
             </a>
             <div className="titleH1">
-              <h1>Interestellar</h1>
-              <Rating value="4"/>
+              <h1>{data.title}</h1>
+              <Rating value={data.rating}/>
             </div>
             <Profile>
               <div>
-              <img src="https://github.com/maxyuri13.png" alt="Foto do usuário" />
-                <span>Por Max Yuri</span>
+              <img
+                src={avatarUrl}
+                alt={`${user.name} profile`}
+              />
+                <span>Por {user.name}</span>
                 <LiaClock />
                 <span>23/05/22 ás 08:00</span>
               </div>
             </Profile>
-            <div class="tags">
-              <Tag title="Science Fiction"/>
-              <Tag title="Drama"/>
-              <Tag title="Family"/>
-            </div>
-              <p>Pestilence in the harvests caused human civilization to regress to an agrarian society in an unknown future. Cooper, a former NASA pilot, has a farm with his family. Murphy, Cooper's ten-year-old daughter, believes her room is haunted by a ghost trying to communicate with her. Father and daughter discover that the 'ghost' is an unknown intelligence sending encoded messages through gravitational radiation, leaving binary coordinates that lead them to a secret NASA facility led by Professor John Brand. The scientist reveals that a wormhole has opened near Saturn and leads to planets that may offer survival conditions for the human species. The 'Lazarus missions' sent years earlier identified three potentially habitable planets orbiting the black hole Gargantua: Miller, Edmunds, and Mann – named after the astronauts who surveyed them. Brand recruits Cooper to pilot the spacecraft Endurance and retrieve the astronauts' data; if one of the planets proves habitable, humanity will follow to it at NASA's facility, which is, in reality, a massive space station. Cooper's departure devastates Murphy.
-                <br/><br/>
-
-                In addition to Cooper, the Endurance crew consists of the biologist Amelia, Brand's daughter; scientist Romilly, planetary physicist Doyle, and the robots TARS and CASE. They enter the wormhole and head to Miller, but discover that the planet experiences significant temporal gravitational dilation due to its proximity to Gargantua: each hour on the surface equals seven years on Earth. They enter Miller and discover it is inhospitable as it is covered by a shallow ocean with enormous waves. A wave hits the crew while Amelia attempts to retrieve Miller's data, killing Doyle and delaying their departure. When they return to the Endurance, Cooper and Amelia find that 23 years have passed.</p>
+            {
+              data.movieTags &&
+              <div class="tags">
+                {
+                  data.movieTags.map(tag => <Tag key={tag.id} title={tag.name} />)
+                }
+              </div>
+            }
+              <p>
+                {data.description}
+              </p>
+              <Button 
+                title="Excluir Filme"
+                className="button" 
+                onClick={handleRemove}
+              />  
           </Content>
         </main>
+      }  
     </Container>
   );
 }

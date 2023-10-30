@@ -41,7 +41,7 @@ export function SignIn() {
           Criar conta
         </Link>
       </Form>
-      <Background/>
+      <Background />
     </Container>
   );
 }

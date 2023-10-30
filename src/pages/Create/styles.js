@@ -30,11 +30,12 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.form`
+  max-width: 117rem;
   min-width: 105.7rem;
   height: 76.7rem;
   margin: 4rem 11.5rem 9.3rem;
 
-  > a {
+  > button {
     display: flex;
     align-items: center;
     gap: .8rem;
@@ -42,6 +43,8 @@ export const Form = styled.form`
     font-weight: 400;
     color: ${({ theme }) => theme.COLORS.PINK_100};
     margin-bottom: 2.4rem;
+    background: none;
+    border: none;
   }
 
   h1 {
@@ -70,6 +73,7 @@ export const Form = styled.form`
     flex-direction: row;
     gap: 4rem;
     margin-top: 2rem;
+    padding-bottom: 5rem;
     
     .Delete {
       background-color: ${({ theme }) => theme.COLORS.BLACK_600};

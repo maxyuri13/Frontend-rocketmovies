@@ -9,10 +9,10 @@ export function Movie({ data, ...rest }) {
       <Rating value={data.rating} />
       <p>{data.description}</p>
       {
-        data.tags &&
+        data.movieTags &&
         <footer>
           {
-            data.tags.map(tag => <Tag key={tag.id} title={tag.name} />)
+            data.movieTags.map(tag => <Tag key={tag.id} title={tag.name} />)
           }
         </footer>
       }

@@ -5,10 +5,11 @@ import { FiArrowLeft, } from 'react-icons/fi';
 import { Link } from "react-router-dom";
 import { Container, Form } from './styles';
 import { Header } from '../../components/Header';
-import { Input } from '../../components/Input'
-import { Textarea } from '../../components/Textarea'
-import { MovieTag } from '../../components/MovieTag'
-import { Button } from '../../components/Button'
+import { Input } from '../../components/Input';
+import { Textarea } from '../../components/Textarea';
+import { MovieTag } from '../../components/MovieTag';
+import { Button } from '../../components/Button';
+
 
 export function Create() {
   const [title, setTitle] = useState("");
@@ -16,17 +17,28 @@ export function Create() {
   const [description, setDescription] = useState("");
   
   const [movieTags, setMovieTags] = useState([]);
-  const [newMovieTag, setNewMovieTag] = useState([]);
+  const [newMovieTag, setNewMovieTag] = useState("");
 
   const navigate = useNavigate();
   
+  function handleBack() {
+    navigate(-1);
+  }
+
   function handleAddMovieTag() {
-    setMovieTags(prevState => [...prevState, newMovieTag]);
-    setNewMovieTag("");
+    if (newMovieTag && !movieTags.includes(newMovieTag)) {
+      setMovieTags(prevState => [...prevState, newMovieTag]);
+      setNewMovieTag("");
+    }
   }
 
   function handleRemoveMovieTag(deleted) {
     setMovieTags(prevState => prevState.filter(tag => tag !== deleted));
+  }
+
+  function HandleRemoveMarkers() {
+    setMovieTags([]);
+    setNewMovieTag("");
   }
 
   async function handleNewMovieNote() {
@@ -39,6 +51,9 @@ export function Create() {
     if (newMovieTag) {
       return alert("Você deixou uma tag no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campo vazio.")
     }
+    if (movieTags.length === 0) {
+      return alert("Adicione pelo menos uma tag antes de salvar o filme.")
+    }
     await api.post("/movieNotes", {
       title,
       rating,
@@ -47,7 +62,7 @@ export function Create() {
     });
 
     alert("Nota criada com sucesso!");
-    navigate("/");
+    navigate(-1);
   }
   
   return (
@@ -55,10 +70,10 @@ export function Create() {
       <Header />
       <main>
         <Form>
-          <Link to="/"> 
+          <button type="button" onClick={handleBack}> 
             <FiArrowLeft/> 
             Voltar
-          </Link>
+          </button>
           <h1>Novo filme</h1>
           <div className="col">
             <Input
@@ -87,7 +102,6 @@ export function Create() {
                 />
               ))
             }
-            
             <MovieTag 
               isNew 
               placeholder="Novo marcador"
@@ -97,9 +111,13 @@ export function Create() {
             />
           </div>
           <div className="buttons">
-            <Button className="Delete" title="Excluir filme" />
             <Button 
-              title="Salvar alterações" 
+              className="Delete" 
+              title="Limpar marcadores" 
+              onClick={HandleRemoveMarkers}
+            />
+            <Button 
+              title="Adicionar filme" 
               onClick={handleNewMovieNote}
             />
           </div>

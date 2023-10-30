@@ -86,4 +86,14 @@ export const Content = styled.div`
   p {
     text-align: justify;
   }
+
+  .button {
+    display: flex;
+    justify-content: center; 
+    width: 40rem;
+    margin: 5rem auto;
+    background-color: ${({ theme }) => theme.COLORS.BLACK_600};
+    color: ${({ theme }) => theme.COLORS.PINK_100};
+  }
 `;
+
