@@ -33,11 +33,19 @@ export function Home() {
       <main>
       <Content>
       <div className="header">
-          <h1>Meus filmes</h1>
-          <AddMovie to="/create">
-            <FiPlus/>
-              Adicionar filme
-          </AddMovie>
+        {
+          search ? (
+            <h1>Resultados da pesquisa</h1>
+          ) : (
+                <>
+                  <h1>Meus filmes</h1>
+                  <AddMovie to="/create">
+                    <FiPlus/>
+                    Adicionar filme
+                  </AddMovie>
+                </>
+              )
+        }
         </div>
         <div className="scrollable">
           {

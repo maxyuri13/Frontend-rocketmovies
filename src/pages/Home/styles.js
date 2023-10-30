@@ -21,7 +21,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-   width: 105.7rem;
+   max-width: 105.7rem;
    margin: 5rem 12rem;
 
    .scrollable {
@@ -33,6 +33,7 @@ export const Content = styled.div`
    .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 4rem;
   }
 

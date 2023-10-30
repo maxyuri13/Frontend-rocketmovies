@@ -64,7 +64,7 @@ export const Profile = styled.div`
 `;
 
 export const Content = styled.div`
-  max-width: 113.7rem;
+  max-width: 105.7rem;
   margin: 0 auto;
 
   display: flex;

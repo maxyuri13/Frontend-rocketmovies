@@ -1,6 +1,7 @@
 import { useAuth } from '../../hooks/auth';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { format } from 'date-fns'
 import { api } from '../../../../Backend/src/services/api';
 import avatarPlaceHolder from '../../assets/avatar_placeholder.svg';
 import { FiArrowLeft } from 'react-icons/fi';
@@ -63,7 +64,11 @@ export function Preview() {
               />
                 <span>Por {user.name}</span>
                 <LiaClock />
-                <span>23/05/22 ás 08:00</span>
+                <span>
+                  {format(new Date(data.created_ad), 'dd/MM/yyyy')} 
+                  &nbsp;às&nbsp; 
+                  {format(new Date(data.created_ad), 'HH:mm')} 
+                </span>
               </div>
             </Profile>
             {
