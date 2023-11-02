@@ -42,7 +42,7 @@ export function Create() {
 
   async function handleNewMovieNote() {
     if (!title) {
-      return alert("Digite o título da nota.");
+      return alert("Digite o título do filme.");
     }
     if (!rating) {
       return alert("Digite a nota do filme.")
@@ -60,7 +60,7 @@ export function Create() {
       movieTags
     });
 
-    alert("Nota criada com sucesso!");
+    alert("Filme adicionado com sucesso!");
     navigate(-1);
   }
   

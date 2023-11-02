@@ -35,7 +35,7 @@ export function Header({search, setSearch}) {
         </div>
         <img 
           src={avatarUrl} 
-          alt={user.name}
+          alt="Foto do usuário"
         />
       </Profile>
     </Container>
