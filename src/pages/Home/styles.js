@@ -12,30 +12,27 @@ export const Container = styled.div`
   "content";
 
   > main {
+    width: 105.7rem;
     display: flex;
-    justify-content: center;
     grid-area: content;
-    overflow-y: auto;
-    margin-bottom: 5.5rem;
-  }
+    margin: 0 auto;
+  } 
 `;
 
 export const Content = styled.div`
-   max-width: 105.7rem;
-   margin: 5rem 12rem;
+   min-width: 105.7rem;
+   margin-bottom: 6rem;
 
-   .scrollable {
-    max-height: 71.7rem;
-    overflow-y: auto;
-    
-   }
-   
    .header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 4rem;
+    margin: 5.1rem 0 3.8rem;
   }
+  
+   .scrollable {
+    max-height: 71.7rem;
+    overflow-y: auto;
+   } 
 
   h1 {
     font-size: 3.2rem;

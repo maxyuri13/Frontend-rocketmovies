@@ -1,5 +1,5 @@
 import { useAuth } from '../../hooks/auth';
-import { api } from '../../../../Backend/src/services/api';
+import { api } from '../../services/api';
 import avatarPlaceHolder from '../../assets/avatar_placeholder.svg';
 import { Container, Search, Profile, Logout } from "./styles";
 import { Input } from '../../components/Input';

@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { api } from '../../../../Backend/src/services/api';
+import { api } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
 import { FiArrowLeft, } from 'react-icons/fi';
-import { Link } from "react-router-dom";
 import { Container, Form } from './styles';
 import { Header } from '../../components/Header';
 import { Input } from '../../components/Input';

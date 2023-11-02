@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { api } from '../../../../Backend/src/services/api';
+import { api } from '../../services/api';
 import { FiPlus } from 'react-icons/fi';
 import { Container, Content, AddMovie } from './styles';
 import { Header } from '../../components/Header';

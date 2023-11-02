@@ -2,7 +2,7 @@ import { useAuth } from '../../hooks/auth';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { format } from 'date-fns'
-import { api } from '../../../../Backend/src/services/api';
+import { api } from '../../services/api';
 import avatarPlaceHolder from '../../assets/avatar_placeholder.svg';
 import { FiArrowLeft } from 'react-icons/fi';
 import { LiaClock } from "react-icons/lia";
