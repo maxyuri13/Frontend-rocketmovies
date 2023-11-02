@@ -60,7 +60,7 @@ export function Create() {
       movieTags
     });
 
-    alert("Filme adicionado com sucesso!");
+    alert("Filme adicionado com sucesso.");
     navigate(-1);
   }
   
